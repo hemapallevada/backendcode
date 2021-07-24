@@ -122,5 +122,45 @@ if(z<50){
 return allids;
 }
 
+function getAcceptedDriverId(uint8 id) public view returns(address){
+       return drops_available[id].autoid;
+   }
+   
+   function get_license_of_driver(uint8 id) public view returns(string memory){
+    return  alldrivers[drops_available[id].autoid].link;
+}
+
+function getCustAddressById(uint8 id) public view returns(address){
+     return drops_available[id].userid;
+}
+
+function getSourceById(uint8 id) public view returns(string memory){
+    return drops_available[id].source;
+}
+
+function getDestinationById(uint8 id) public view returns(string memory){
+    return drops_available[id].dest;
+} 
+
+
+function get_amount_to_be_paid(uint8 id) public view returns(uint8){
+     return drops_available[id].amount_paid;
+}
+
+function get_drop_status(uint8 id )public view returns(bool){
+    return drops_available[id].dropped;
+}
+
+function get_last_id(address add) public view returns(uint64){
+    return allcustomers[add].l_id;
+}
+
+function get_mob_of_cust(address add) public view returns(uint64){
+    return allcustomers[add].mobile;
+}
+
+function get_number_of_driver(address add) public view returns(uint64){
+    return alldrivers[add].mobile;
+}
 
 }
